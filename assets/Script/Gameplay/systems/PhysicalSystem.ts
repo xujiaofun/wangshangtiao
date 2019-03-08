@@ -11,23 +11,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class PhysicalSystem {
 
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {}
-
-    vx = 0
-    vy = 733
-
-    start () {
-        this.node.x = 0
-        this.node.y = 0
-    }
-
-    update (dt) {
-        this.vy = this.vy - 2240 * dt
-        this.node.x = this.node.x + 200 * dt
-        this.node.y = this.node.y + this.vy * dt
-    }
+    
 }

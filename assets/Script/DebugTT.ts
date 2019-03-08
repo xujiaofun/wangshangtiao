@@ -44,8 +44,7 @@ export default class DebugTT extends cc.Component {
             // Game.instance.velocityXIncrement = parseInt(this.ex.string)
             // Game.instance.velocityYIncrement = parseInt(this.ey.string)
             // Game.instance.velocityY = parseInt(this.ez.string)
-            this.world.y = parseInt(this.ex.string)
-            cc.log("position", Game.instance.world.getPosition().y)
+            this.world.y = this.world.y - 10
         }, this)
 
         // this.resetBtn.node.on("click", function() {

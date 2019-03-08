@@ -10,6 +10,7 @@
 
 const {ccclass, property} = cc._decorator;
 import GameConfig from "./GameConfig";
+import Map from "./Gameplay/Map";
 
 @ccclass
 export default class App extends cc.Component {
@@ -17,13 +18,18 @@ export default class App extends cc.Component {
     static config:GameConfig
 
     // LIFE-CYCLE CALLBACKS:
-
+    static instance:App
     onLoad () {
-
+        App.instance = this
+        cc.director.getCollisionManager().enabled = true
     }
 
     start () {
-
+        let go = new cc.Node()
+        go.setAnchorPoint(0.5, 0)
+        go.setPosition(0, -250)
+        go.addComponent(Map)
+        this.node.addChild(go)
     }
 
     // update (dt) {}

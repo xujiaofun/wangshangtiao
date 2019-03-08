@@ -11,35 +11,17 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class ResManager extends cc.Component {
 
-    @property(cc.Button)
-    btn: cc.Button = null;
+    @property(cc.Prefab)
+    blockPrefab: cc.Prefab = null;
 
-    @property(cc.Node)
-    body: cc.Node = null;
+    @property(cc.Prefab)
+    rolePrefab: cc.Prefab = null;
 
-    @property
-    text: string = 'hello';
-
-    // LIFE-CYCLE CALLBACKS:
+    static instance:ResManager
 
     onLoad () {
-        cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true;
-        cc.director.getCollisionManager().enabledDrawBoundingBox = true;
+        ResManager.instance = this
     }
-
-    start () {
-        this.btn.node.on('click', function() {
-            this.body.y=this.node.y-10
-            cc.log('click');
-        }, this)
-    }
-
-    onCollisionEnter(other,self) {
-        cc.log('on collision enter');
-    }
-
-    // update (dt) {}
 }

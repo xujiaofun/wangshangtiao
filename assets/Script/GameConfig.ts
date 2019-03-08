@@ -11,15 +11,21 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class GameConfig {
+export default class GameConfig extends cc.Component {
 
+    @property(Number)
     gravity = 2240
+
+    @property(Number)
     moveSpeed = 200
+
+    @property(Number)
     minJumpSpeed = 730
-    /**
-     *
-     */
-    constructor() {
-        
+    
+    static instance:GameConfig
+
+    onLoad () {
+        GameConfig.instance = this
     }
+    
 }
