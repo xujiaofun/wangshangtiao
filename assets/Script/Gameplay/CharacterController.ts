@@ -41,12 +41,11 @@ export default class CharacterController extends cc.Component {
         selfPreAABB.x = selfAABB.x
         if (cc.Intersection.rectRect(otherPreAABB, selfPreAABB)) {
             if (this.physicalBody.velocity.x < 0 && selfPreAABB.xMax > otherPreAABB.xMax) {
-                // this.node.x = otherPreAABB.xMax - this.node.parent.x;
-                // this.node.x = this.node.parent.convertToNodeSpaceAR(cc.v2(otherPreAABB.xMax, 0)).x
+                this.node.x += Math.floor(Math.abs(otherAABB.xMax - selfAABB.xMin))
                 this.physicalBody.collisionX = -1
             }
             else if (this.physicalBody.velocity.x > 0 && selfPreAABB.xMin < otherPreAABB.xMin) {
-                // this.node.x = this.node.parent.convertToNodeSpaceAR(cc.v2(otherPreAABB.xMin, 0)).x 
+                this.node.x -= Math.floor(Math.abs(otherAABB.xMin - selfAABB.xMax)); 
                 this.physicalBody.collisionX = 1
             }
 
@@ -58,12 +57,14 @@ export default class CharacterController extends cc.Component {
         selfPreAABB.y = selfAABB.y
         if (cc.Intersection.rectRect(otherPreAABB, selfPreAABB)) {
             if (this.physicalBody.velocity.y < 0 && selfPreAABB.yMax > otherPreAABB.yMax) {
-                this.node.y = this.node.parent.convertToNodeSpaceAR(cc.v2(0, otherPreAABB.yMax + selfPreAABB.height * 0.5)).y 
+                this.node.y = otherPreAABB.yMax - this.node.parent.y; 
+                // this.node.y = this.node.parent.convertToNodeSpaceAR(cc.v2(0, otherPreAABB.yMax + selfPreAABB.height * 0.5)).y
                 this.physicalBody.collisionY = -1
                 this.physicalBody.isMoving = false
             }
             else if (this.physicalBody.velocity.y > 0 && selfPreAABB.yMin < otherPreAABB.yMin) {
-                this.node.y = this.node.parent.convertToNodeSpaceAR(cc.v2(0, otherPreAABB.yMin - selfPreAABB.height * 0.5)).y 
+                this.node.y = otherPreAABB.yMin - selfPreAABB.height - this.node.parent.y;
+                // this.node.y = this.node.parent.convertToNodeSpaceAR(cc.v2(0, otherPreAABB.yMin - selfPreAABB.height * 0.5)).y 
                 this.physicalBody.collisionY = 1
             }
 

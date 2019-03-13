@@ -27,9 +27,9 @@ export default class App extends cc.Component {
     start () {
         let go = new cc.Node()
         go.setAnchorPoint(0.5, 0)
-        go.setPosition(0, -250)
+        go.setPosition(320, 0)
         go.addComponent(Map)
-        this.node.addChild(go)
+        this.node.parent.addChild(go)
     }
 
     // update (dt) {}

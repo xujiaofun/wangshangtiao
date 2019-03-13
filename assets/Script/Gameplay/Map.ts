@@ -5,6 +5,7 @@ import CharacterController from "./CharacterController";
 import PhysicObject from "./PhysicObject";
 import GameConfig from "../GameConfig";
 import App from "../App";
+import CharacterController2D from "./CharacterController2D";
 
 // Learn TypeScript:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
@@ -43,7 +44,7 @@ export default class Map extends cc.Component {
         }
 
         this.node.addChild(go, 99)
-        go.setPosition(-160, 80)
+        go.setPosition(160, 80)
         
         phy.gravity = GameConfig.instance.gravity
         cc.log('phy.gravity', phy.gravity)
@@ -100,9 +101,9 @@ export default class Map extends cc.Component {
             let posX = 0
             let posY = (this.blockArr.length) * 200
             if (this.blockArr.length % 2 == 0) {
-                posX = -160
-            } else {
                 posX = 160
+            } else {
+                posX = -160
             }
             go.setPosition(posX, posY)
 
@@ -111,13 +112,13 @@ export default class Map extends cc.Component {
         }
     }
 
+    _velocity:cc.Vec2 = cc.Vec2.ZERO
     update (dt) {
         for (let index = 0; index < this.physicalGroup.length; index++) {
             const element = this.physicalGroup[index];
             element.runPhysicalEngine(dt)
         }
-        this.checkCollision()
-        
+        // this.checkCollision()
     }
 
     checkCollision() {
