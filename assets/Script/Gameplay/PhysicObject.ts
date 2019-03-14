@@ -22,6 +22,8 @@ export default class PhysicObject extends cc.Component {
     collisionX:number = 0
     collisionY:number = 0
     isMoving = false
+    fallDown = false
+    touchingNumber:number = 0
 
     start () {
         
@@ -34,11 +36,11 @@ export default class PhysicObject extends cc.Component {
     // }
 
     runPhysicalEngine(dt) {
-        if (!this.isMoving) return
+        // if (!this.isMoving) return
 
         // if (this.collisionY != 0 || this.collisionX != 0) return
 
-        if (this.collisionY == 0) {
+        if (this.collisionY != -1) {
             this.velocity.y = this.velocity.y - this.gravity * dt
         }
 

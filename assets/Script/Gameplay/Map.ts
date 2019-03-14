@@ -34,7 +34,17 @@ export default class Map extends cc.Component {
     onTouchStart:Function = null
     onTouchEnd:Function = null
 
+    static Create(parent) {
+        let go = cc.instantiate(ResManager.instance.mapPrefab)
+        parent.addChild(go)
+        let map = go.addComponent(Map)
+        return map
+    }
+
     start () {
+        this.bgImg = this.node.getChildByName("BgLayer").getChildByName("bgImg")
+        cc.log("bg", this.bgImg)
+
         let go = cc.instantiate(ResManager.instance.rolePrefab)
         let phy = go.addComponent(PhysicObject)
         this.mainRole = go.addComponent(CharacterController)
@@ -44,10 +54,9 @@ export default class Map extends cc.Component {
         }
 
         this.node.addChild(go, 99)
-        go.setPosition(160, 80)
+        go.setPosition(80, 80)
         
         phy.gravity = GameConfig.instance.gravity
-        cc.log('phy.gravity', phy.gravity)
         phy.isMoving = true
         this.physicalGroup.push(phy)
         this.createBlocks()
@@ -60,13 +69,10 @@ export default class Map extends cc.Component {
         let onTouchEnd = function(e:cc.Event.EventTouch) {
             let touchEndTime = Date.now();
             let duration = (touchEndTime - touchStartTime) / 1000;
-            if (duration < 0.01) return
-            let x = Math.min(3000, duration * this.velocityXIncrement);
-            let y = Math.min(3000, duration * this.velocityYIncrement + this.velocityY);
+            let vx = Math.min(400, duration * 40 + 240);
+            let vy = Math.min(1500, duration * 300 + 700); 
             let sign = this.blockIndex % 2 == 1 ? 1 : -1
-            phy.velocity = cc.v2(sign * 350, 1000);
-            phy.isMoving = true
-            // cc.log("onTouchEnd")
+            phy.velocity = cc.v2(sign * vx, vy);
         }
 
         this.onTouchStart = onTouchStart
@@ -81,7 +87,7 @@ export default class Map extends cc.Component {
     }
 
     onJumpSuccess() {
-        if (this.blockIndex != 0) {
+        if (this.blockIndex > 1) {
             let actionTo = cc.moveBy(0.3, cc.v2(0, -200))
             this.node.runAction(actionTo)
         }
@@ -101,9 +107,9 @@ export default class Map extends cc.Component {
             let posX = 0
             let posY = (this.blockArr.length) * 200
             if (this.blockArr.length % 2 == 0) {
-                posX = 160
+                posX = 80
             } else {
-                posX = -160
+                posX = 360
             }
             go.setPosition(posX, posY)
 

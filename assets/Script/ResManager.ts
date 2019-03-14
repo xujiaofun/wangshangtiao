@@ -19,6 +19,9 @@ export default class ResManager extends cc.Component {
     @property(cc.Prefab)
     rolePrefab: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    mapPrefab: cc.Prefab = null;
+
     static instance:ResManager
 
     onLoad () {

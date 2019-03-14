@@ -17,6 +17,8 @@ export default class App extends cc.Component {
 
     static config:GameConfig
 
+    static map:Map
+
     // LIFE-CYCLE CALLBACKS:
     static instance:App
     onLoad () {
@@ -25,11 +27,7 @@ export default class App extends cc.Component {
     }
 
     start () {
-        let go = new cc.Node()
-        go.setAnchorPoint(0.5, 0)
-        go.setPosition(320, 0)
-        go.addComponent(Map)
-        this.node.parent.addChild(go)
+        App.map = Map.Create(this.node.parent)
     }
 
     // update (dt) {}

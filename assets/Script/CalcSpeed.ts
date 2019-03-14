@@ -19,10 +19,10 @@ export default class NewClass extends cc.Component {
     moveSpeed = 0
     maxJumpSpeed = 0
     minJumpSpeed = 0
-    maxJumpHeight = 7 * this.UNIT
-    maxJumpWidth = 5 * this.UNIT
-    minJumpHeight = 3 * this.UNIT
-    jumpDuration = 1
+    maxJumpHeight = 14 * this.UNIT
+    maxJumpWidth = 14 * this.UNIT
+    minJumpHeight = 4 * this.UNIT
+    jumpDuration = 1.5
     velocity:cc.Vec2 = new cc.Vec2(0,0)
 
     // LIFE-CYCLE CALLBACKS:
@@ -33,7 +33,7 @@ export default class NewClass extends cc.Component {
         this.gravity = 2 * this.maxJumpHeight / (this.jumpDuration / 2) / (this.jumpDuration / 2)
         this.moveSpeed = this.maxJumpWidth / this.jumpDuration
         this.maxJumpSpeed = this.gravity * (this.jumpDuration / 2)
-        this.minJumpSpeed = -Math.sqrt(2 * this.gravity * this.minJumpHeight)
+        this.minJumpSpeed = Math.sqrt(2 * this.gravity * this.minJumpHeight)
 
         cc.log("gravity = ", this.gravity)
         cc.log("moveSpeed = ", this.moveSpeed)
