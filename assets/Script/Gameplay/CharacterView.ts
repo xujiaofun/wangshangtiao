@@ -9,32 +9,45 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
 const {ccclass, property} = cc._decorator;
-import GameConfig from "./GameConfig";
-import Map from "./Gameplay/Map";
 
 @ccclass
-export default class App extends cc.Component {
+export default class CharacterView extends cc.Component {
 
-    static config:GameConfig
+    @property(cc.Node)
+    jumpNode: cc.Node = null;
 
-    static map:Map
+    @property(cc.Node)
+    standingNode: cc.Node = null;
+
+    @property(cc.Node)
+    avatarNode: cc.Node = null;
+    
+
 
     // LIFE-CYCLE CALLBACKS:
-    static instance:App
-    onLoad () {
-        App.instance = this
-        cc.director.getCollisionManager().enabled = true
-    }
+
+    // onLoad () {}
 
     start () {
-        App.map = Map.Create(this.node.parent)
+        this.setDirection(1)
     }
 
-    restart() {
-        if (App.map) {
-            App.map.node.destroy()
+    setDirection(value) {
+        if (value == 1) {
+            this.avatarNode.scaleX = -1
+        } else {
+            this.avatarNode.scaleX = 1
         }
-        App.map = Map.Create(this.node.parent)
+    }
+
+    playAction(labelName) {
+        if (labelName == "jump") {
+            this.jumpNode.active = true
+            this.standingNode.active = false
+        } else {
+            this.jumpNode.active = false
+            this.standingNode.active = true
+        }
     }
 
     // update (dt) {}

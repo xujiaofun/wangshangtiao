@@ -19,10 +19,10 @@ export default class NewClass extends cc.Component {
     moveSpeed = 0
     maxJumpSpeed = 0
     minJumpSpeed = 0
-    maxJumpHeight = 14 * this.UNIT
+    maxJumpHeight = 8 * this.UNIT
     maxJumpWidth = 14 * this.UNIT
     minJumpHeight = 4 * this.UNIT
-    jumpDuration = 1.5
+    jumpDuration = 1
     velocity:cc.Vec2 = new cc.Vec2(0,0)
 
     // LIFE-CYCLE CALLBACKS:

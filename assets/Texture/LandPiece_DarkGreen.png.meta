@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "c9519303-5348-4274-b770-24d256a4e71e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "LandPiece_DarkGreen": {
+      "ver": "1.0.3",
+      "uuid": "de9398eb-a28d-4406-9ed5-b3b7f9255d82",
+      "rawTextureUuid": "c9519303-5348-4274-b770-24d256a4e71e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 106,
+      "height": 52,
+      "rawWidth": 106,
+      "rawHeight": 52,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 30,
+      "borderRight": 46,
+      "subMetas": {}
+    }
+  }
+}

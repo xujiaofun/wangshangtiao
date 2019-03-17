@@ -12,17 +12,27 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class Block extends cc.Component {
-    @property()
+    
     index:number = 0
 
-    public isCollided:boolean = false
+    collider:cc.BoxCollider
 
-    // LIFE-CYCLE CALLBACKS:
+    onLoad () {
+        this.collider = this.node.getComponent(cc.BoxCollider)
+    }
 
-    // onLoad () {}
+    setup(index, width) {
+        this.index = index
+        this.node.width = width
+        
+        
+    }
 
     start () {
-
+        let size = this.collider.size
+        size.width = this.node.width
+        this.collider.size = size
+        // cc.log("size width", this.collider.size, this.node.width)
     }
 
     // update (dt) {}

@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5278031643091567,
-      "y": 0.5278031643091567,
+      "x": 0.6043294270833333,
+      "y": 0.6043294270833333,
       "z": 1
     },
     "_quat": {
@@ -52,7 +52,6 @@
       "z": 0,
       "w": 1
     },
-    "_zIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
     "_id": "329b932c-1d51-4f7b-930e-5a440dc24936"
@@ -76,9 +75,6 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 6
-      },
-      {
         "__id__": 7
       },
       {
@@ -89,6 +85,9 @@
       },
       {
         "__id__": 10
+      },
+      {
+        "__id__": 11
       }
     ],
     "_prefab": null,
@@ -133,7 +132,6 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "60AxVtLEZMPKF7C0Vqm+1n"
   },
@@ -194,7 +192,6 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
     "_id": "50U1XH4g1FfbUsb4CKC2Jf"
   },
@@ -206,7 +203,7 @@
       "__id__": 3
     },
     "_enabled": true,
-    "_cullingMask": 4294967295,
+    "_cullingMask": -3,
     "_clearFlags": 7,
     "_backgroundColor": {
       "__type__": "cc.Color",
@@ -222,15 +219,19 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "root",
+    "_name": "UI Camera",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
     },
     "_children": [],
     "_active": true,
-    "_level": 1,
-    "_components": [],
+    "_level": 2,
+    "_components": [
+      {
+        "__id__": 6
+      }
+    ],
     "_prefab": null,
     "_opacity": 255,
     "_color": {
@@ -273,9 +274,30 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
-    "_id": "d5oymNn8ROvIBE/fHrob2v"
+    "_id": "96WF4Tc6xEh6bFW6o9Hix+"
+  },
+  {
+    "__type__": "cc.Camera",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 5
+    },
+    "_enabled": true,
+    "_cullingMask": 2,
+    "_clearFlags": 0,
+    "_backgroundColor": {
+      "__type__": "cc.Color",
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 255
+    },
+    "_depth": 2,
+    "_zoomRatio": 1,
+    "_targetTexture": null,
+    "_id": "d2o+DB1XVKnKYmEwbAgodD"
   },
   {
     "__type__": "cc.Canvas",
@@ -290,8 +312,8 @@
       "width": 640,
       "height": 960
     },
-    "_fitWidth": false,
-    "_fitHeight": true,
+    "_fitWidth": true,
+    "_fitHeight": false,
     "_id": "1etiuHzZBK4rwjEVfK4e8E"
   },
   {
@@ -323,6 +345,15 @@
     },
     "mapPrefab": {
       "__uuid__": "778ba57e-a2a0-4587-9915-6cfc9c4de2db"
+    },
+    "waterPrefab": {
+      "__uuid__": "23a8968b-403b-4d01-b9b2-0f507eb14301"
+    },
+    "gameScorePrefab": {
+      "__uuid__": "d714d40c-733e-47e7-ab1b-82363d46222d"
+    },
+    "gameOverPrefab": {
+      "__uuid__": "c381209b-ced0-43ac-acf1-5d088ba2cd97"
     },
     "_id": "b47UMntWRBCoiJljL+bZ8t"
   },

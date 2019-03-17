@@ -14,13 +14,13 @@ const {ccclass, property} = cc._decorator;
 export default class GameConfig extends cc.Component {
 
     @property(Number)
-    gravity = 2300
+    gravity = 2560
 
     @property(Number)
-    moveSpeed = 200
+    moveSpeed = 560
 
     @property(Number)
-    minJumpSpeed = 730
+    minJumpSpeed = 1280
     
     static instance:GameConfig
 

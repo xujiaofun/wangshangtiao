@@ -22,6 +22,16 @@ export default class ResManager extends cc.Component {
     @property(cc.Prefab)
     mapPrefab: cc.Prefab = null;
 
+    @property(cc.Prefab)
+    waterPrefab: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    gameScorePrefab: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    gameOverPrefab: cc.Prefab = null;
+    
+
     static instance:ResManager
 
     onLoad () {

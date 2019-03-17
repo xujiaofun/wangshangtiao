@@ -22,6 +22,8 @@ export default class CharacterController extends cc.Component {
 
     jumpSuccess:Function
 
+    jumpFail:Function
+
     stopNode:cc.Node
 
     touchingNumber:number = 0
@@ -31,8 +33,17 @@ export default class CharacterController extends cc.Component {
         this.physicalBody = this.node.getComponent(PhysicObject)
     }
 
-    // update (dt) {}
     onCollisionEnter(other, self) {
+        if (other.tag == 1) {
+            this.onBlockCollisionEnter(other, self)
+        }
+        else if (other.tag == 2) {
+            this.onWaterCollisionEnter(other, self)
+        }
+    }
+
+    // update (dt) {}
+    onBlockCollisionEnter(other, self) {
         this.node.color = cc.Color.RED
         this.touchingNumber++
         this.physicalBody.touchingNumber++
@@ -88,6 +99,10 @@ export default class CharacterController extends cc.Component {
             this.stopNode = other.node
             this.jumpSuccess()
         }
+    }
+
+    onWaterCollisionEnter(other, self) {
+        this.jumpFail()
     }
 
     onCollisionStay(other, self) {
